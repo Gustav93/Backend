@@ -4,8 +4,9 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "musicos")
+@Table(name = "musico")
 public class Musico {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -17,57 +18,31 @@ public class Musico {
     @Column(name = "apellido")
     private String apellido;
 
-    @Column(name = "password")
-    private String password;
+    @Column(name = "formacion")
+    private String formacion;
 
-    @Column(name = "email")
-    private String email;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<ExperienciaBanda> experienciaEnBandas;
 
-    @Column(name = "years")
-    private int years;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<ExperienciaInstrumento> experienciaEnInstrumentos;
 
-    @Column(name = "instrumentos")
-    private List<Instrumento> instrumentos;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Postulacion> postulaciones;
 
-    @Column(name = "banda")
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<GeneroMusical> generosMusicales;
+
+    @ManyToOne(cascade = CascadeType.ALL)
     private Banda banda;
 
-    @Column(name = "postulaciones")
-    private List<Postulacion> postaciones;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Onda onda   ;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Reputacion reputacion;
 
     public Musico() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getYears() {
-        return years;
-    }
-
-    public void setYears(int years) {
-        this.years = years;
-    }
-
-    public Banda getBanda() {
-        return banda;
-    }
-
-    public void setBanda(Banda banda) {
-        this.banda = banda;
-    }
-
-    public List<Postulacion> getPostaciones() {
-        return postaciones;
-    }
-
-    public void setPostaciones(List<Postulacion> postaciones) {
-        this.postaciones = postaciones;
     }
 
     public String getNombre() {
@@ -86,27 +61,67 @@ public class Musico {
         this.apellido = apellido;
     }
 
-    public String getPassword() {
-        return password;
+    public String getFormacion() {
+        return formacion;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setFormacion(String formacion) {
+        this.formacion = formacion;
     }
 
-    public String getEmail() {
-        return email;
+    public List<ExperienciaBanda> getExperienciaEnBandas() {
+        return experienciaEnBandas;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setExperienciaEnBandas(List<ExperienciaBanda> experienciaEnBandas) {
+        this.experienciaEnBandas = experienciaEnBandas;
     }
 
-    public List<Instrumento> getInstrumentos() {
-        return instrumentos;
+    public List<ExperienciaInstrumento> getExperienciaEnInstrumentos() {
+        return experienciaEnInstrumentos;
     }
 
-    public void setInstrumentos(List<Instrumento> instrumentos) {
-        this.instrumentos = instrumentos;
+    public void setExperienciaEnInstrumentos(List<ExperienciaInstrumento> experienciaEnInstrumentos) {
+        this.experienciaEnInstrumentos = experienciaEnInstrumentos;
+    }
+
+    public List<Postulacion> getPostulaciones() {
+        return postulaciones;
+    }
+
+    public void setPostulaciones(List<Postulacion> postulaciones) {
+        this.postulaciones = postulaciones;
+    }
+
+    public List<GeneroMusical> getGenerosMusicales() {
+        return generosMusicales;
+    }
+
+    public void setGenerosMusicales(List<GeneroMusical> generosMusicales) {
+        this.generosMusicales = generosMusicales;
+    }
+
+    public Banda getBanda() {
+        return banda;
+    }
+
+    public void setBanda(Banda banda) {
+        this.banda = banda;
+    }
+
+    public Onda getOnda() {
+        return onda;
+    }
+
+    public void setOnda(Onda onda) {
+        this.onda = onda;
+    }
+
+    public Reputacion getReputacion() {
+        return reputacion;
+    }
+
+    public void setReputacion(Reputacion reputacion) {
+        this.reputacion = reputacion;
     }
 }

@@ -12,5 +12,5 @@ public interface MusicoDao {
 
     void save(Musico musico);
 
-    void update(Musico musico);
+//    void update(Musico musico);
 }

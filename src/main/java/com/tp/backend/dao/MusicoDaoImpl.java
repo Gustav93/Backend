@@ -39,7 +39,7 @@ public class MusicoDaoImpl implements MusicoDao {
         List<Musico> musicos = null;
         try {
             session.beginTransaction();
-            musicos = session.createSQLQuery("select * from musicos").list();
+            musicos = session.createSQLQuery("select * from musico").list();
             session.getTransaction().commit();
         }
 
@@ -71,35 +71,35 @@ public class MusicoDaoImpl implements MusicoDao {
         }
     }
 
-    @Override
-    public void update(Musico musico) {
-        Session session = sessionFactory.openSession();
-        try {
-            session.beginTransaction();
-
-            Musico entity = (Musico) session.get(Musico.class, musico.getId());
-
-            entity.setNombre(musico.getNombre());
-            entity.setApellido(musico.getApellido());
-            entity.setPassword(musico.getPassword());
-            entity.setEmail(musico.getEmail());
-            entity.setYears(musico.getYears());
-            entity.setInstrumentos(musico.getInstrumentos());
-            entity.setBanda(musico.getBanda());
-            entity.setPostaciones(musico.getPostaciones());
-
-            session.update(entity);
-            session.getTransaction().commit();
-        }
-
-        catch (Exception e){
-            e.printStackTrace();
-            session.getTransaction().rollback();
-        }
-        finally {
-            session.close();
-        }
-    }
+//    @Override
+//    public void update(Musico musico) {
+//        Session session = sessionFactory.openSession();
+//        try {
+//            session.beginTransaction();
+//
+//            Musico entity = (Musico) session.get(Musico.class, musico.getId());
+//
+//            entity.setNombre(musico.getNombre());
+//            entity.setApellido(musico.getApellido());
+//            entity.setFormacion(musico.getFormacion());
+//            entity.setEmail(musico.getEmail());
+//            entity.setYears(musico.getYears());
+//            entity.setInstrumentos(musico.getInstrumentos());
+//            entity.setBanda(musico.getBanda());
+//            entity.setPostulaciones(musico.getPostulaciones());
+//
+//            session.update(entity);
+//            session.getTransaction().commit();
+//        }
+//
+//        catch (Exception e){
+//            e.printStackTrace();
+//            session.getTransaction().rollback();
+//        }
+//        finally {
+//            session.close();
+//        }
+//    }
 
     private static SessionFactory buildSessionFactory() {
         // Creating Configuration Instance & Passing Hibernate Configuration File

@@ -6,41 +6,52 @@ import javax.persistence.*;
 @Table(name = "busquedas")
 public class Busqueda {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "id")
+//    private int id;
 
-    @Column(name = "expYear")
-    private int expYear;
+    @Column(name = "añosExperiencia")
+    private int añosExperiencia;
 
     @Column(name = "instrumento")
-    private String instrumento;
+    private int tiempoMaximo;
+
+    @Column(name = "banda")
+    private Banda banda;
 
     public Busqueda() {
     }
 
-    public int getId() {
-        return id;
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public void setId(int id) {
+//        this.id = id;
+//    }
+
+    public int getAñosExperiencia() {
+        return añosExperiencia;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setAñosExperiencia(int añosExperiencia) {
+        this.añosExperiencia = añosExperiencia;
     }
 
-    public int getExpYear() {
-        return expYear;
+    public int getTiempoMaximo() {
+        return tiempoMaximo;
     }
 
-    public void setExpYear(int expYear) {
-        this.expYear = expYear;
+    public void setTiempoMaximo(int tiempoMaximo) {
+        this.tiempoMaximo = tiempoMaximo;
     }
 
-    public String getInstrumento() {
-        return instrumento;
+    public Banda getBanda() {
+        return banda;
     }
 
-    public void setInstrumento(String instrumento) {
-        this.instrumento = instrumento;
+    public void setBanda(Banda banda) {
+        this.banda = banda;
     }
 }

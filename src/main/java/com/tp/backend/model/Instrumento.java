@@ -3,30 +3,34 @@ package com.tp.backend.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "instrumentos")
 public class Instrumento
 {
-    @Column(name = "instrumento")
-    private String instrumento;
+    @Column(name = "nombre")
+    private String nombre;
 
-    @Column(name = "expYears")
-    private int expYears;
+    @Column(name = "experienciaInstrumento")
+    private int experienciaInstrumento;
+
+    @Column(name = "postulacion")
+    private Postulacion postulacion;
 
     public Instrumento() {
     }
 
-    public String getInstrumento() {
-        return instrumento;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setInstrumento(String instrumento) {
-        this.instrumento = instrumento;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public int getExpYears() {
-        return expYears;
+    public int getExperienciaInstrumento() {
+        return experienciaInstrumento;
     }
 
-    public void setExpYears(int expYears) {
-        this.expYears = expYears;
+    public void setExperienciaInstrumento(int experienciaInstrumento) {
+        this.experienciaInstrumento = experienciaInstrumento;
     }
 }
