@@ -13,7 +13,6 @@ public class ExperienciaBanda {
     private int cantAños;
 
     @OneToMany(mappedBy = "experienciaEnBandas", cascade = CascadeType.ALL)
-    @Column(name = "musico")
     private Musico musico;
 
     public ExperienciaBanda() {

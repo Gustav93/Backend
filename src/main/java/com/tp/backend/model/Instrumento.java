@@ -6,6 +6,9 @@ import javax.persistence.*;
 @Table(name = "instrumentos")
 public class Instrumento
 {
+    @Id
+    private int id;
+
     @Column(name = "nombre")
     private String nombre;
 

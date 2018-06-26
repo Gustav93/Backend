@@ -1,17 +1,18 @@
 package com.tp.backend.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "GeneroMusical")
 public class GeneroMusical {
 
+    @Id
+    private int id;
+
     @Column(name = "nombre")
     private String nombre;
 
-    @Column(name = "musico")
+    @ManyToOne(cascade = CascadeType.ALL)
     private Musico musico;
 
     public GeneroMusical() {

@@ -9,7 +9,6 @@ public class Musico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private int id;
 
     @Column(name = "nombre")
@@ -24,8 +23,8 @@ public class Musico {
     @OneToMany(cascade = CascadeType.ALL)
     private List<ExperienciaBanda> experienciaEnBandas;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<ExperienciaInstrumento> experienciaEnInstrumentos;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    private List<ExperienciaInstrumento> experienciaEnInstrumentos;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Postulacion> postulaciones;
@@ -37,7 +36,7 @@ public class Musico {
     private Banda banda;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    private Onda onda   ;
+    private Onda onda;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Reputacion reputacion;
@@ -77,13 +76,13 @@ public class Musico {
         this.experienciaEnBandas = experienciaEnBandas;
     }
 
-    public List<ExperienciaInstrumento> getExperienciaEnInstrumentos() {
-        return experienciaEnInstrumentos;
-    }
-
-    public void setExperienciaEnInstrumentos(List<ExperienciaInstrumento> experienciaEnInstrumentos) {
-        this.experienciaEnInstrumentos = experienciaEnInstrumentos;
-    }
+//    public List<ExperienciaInstrumento> getExperienciaEnInstrumentos() {
+//        return experienciaEnInstrumentos;
+//    }
+//
+//    public void setExperienciaEnInstrumentos(List<ExperienciaInstrumento> experienciaEnInstrumentos) {
+//        this.experienciaEnInstrumentos = experienciaEnInstrumentos;
+//    }
 
     public List<Postulacion> getPostulaciones() {
         return postulaciones;

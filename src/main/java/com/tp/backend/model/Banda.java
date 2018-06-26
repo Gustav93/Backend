@@ -16,10 +16,8 @@ public class Banda {
     private String nombre;
 
     @OneToMany(mappedBy = "banda", cascade = CascadeType.ALL)
-    @Column(name = "musicos")
     private List<Musico> musicos;
 
-    @Column(name = "busquedas")
     private List<Busqueda> busquedas;
 
     @Column(name = "discografia")

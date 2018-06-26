@@ -1,20 +1,21 @@
 package com.tp.backend.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "ExperienciaInstrumento")
 public class ExperienciaInstrumento {
 
+    @Id
+    private int id;
+
     @Column(name = "años")
     private int años;
 
-    @Column(name = "musico")
+    @ManyToOne(cascade = CascadeType.ALL)
     private Musico musico;
 
-    @Column(name = "instrumento")
+    @ManyToOne(cascade = CascadeType.ALL)
     private Instrumento instrumento;
 
     public ExperienciaInstrumento() {

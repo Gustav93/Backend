@@ -9,7 +9,7 @@ public class Postulacion {
     @Id
     private int id;
 
-    @OneToMany(mappedBy = "postulaciones")
+    @ManyToOne(cascade = CascadeType.ALL)
     private  Musico musico;
 
     @OneToOne
