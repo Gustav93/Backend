@@ -15,12 +15,9 @@
 
         <!-- Database Connection Settings -->
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <!--<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tp3</property>-->
-        <property name="hibernate.connection.url">jdbc:mysql://200.61.221.197:3306/tp3</property>
-        <property name="hibernate.connection.username">auditoriaadmin</property>
-        <property name="hibernate.connection.password">audiadmin2018</property>
-        <!--<property name="hibernate.connection.username">root</property>-->
-        <!--<property name="hibernate.connection.password">pass</property>-->
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/appweb</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">pass</property>
         <property name="show_sql">true</property>
 
 
@@ -31,15 +28,13 @@
 
         <!-- Mapping With Model Class Containing Annotations -->
         <mapping class="com.tp.backend.MainApp" />
-        <mapping class="com.tp.backend.model.Musico" />
+        <mapping class="com.tp.backend.model.Busqueda" />
         <mapping class="com.tp.backend.model.Postulacion" />
         <mapping class="com.tp.backend.model.Banda" />
-        <mapping class="com.tp.backend.model.Onda" />
-        <mapping class="com.tp.backend.model.Reputacion" />
+        <mapping class="com.tp.backend.model.Musico" />
+        <mapping class="com.tp.backend.model.Notificacion" />
         <mapping class="com.tp.backend.model.Instrumento" />
-        <mapping class="com.tp.backend.model.GeneroMusical" />
-
-
+        <mapping class="com.tp.backend.model.Notificacion" />
 
     </session-factory>
 </hibernate-configuration>

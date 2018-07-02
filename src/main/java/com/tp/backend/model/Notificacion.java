@@ -3,7 +3,7 @@ package com.tp.backend.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "nmotificaciones")
+@Table(name = "notificacion")
 public class Notificacion {
 
     @Id
@@ -11,10 +11,10 @@ public class Notificacion {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "banda")
+    @ManyToOne(cascade = CascadeType.ALL)
     private Banda banda;
 
-    @Column(name = "musico")
+    @ManyToOne(cascade = CascadeType.ALL)
     private Musico Musico;
 
     public Notificacion() {

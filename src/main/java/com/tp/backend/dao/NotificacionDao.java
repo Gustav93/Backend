@@ -1,25 +1,22 @@
 package com.tp.backend.dao;
 
-import com.tp.backend.model.Postulacion;
+import com.tp.backend.model.Musico;
+import com.tp.backend.model.Notificacion;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-import java.util.List;
-
-public class PostulacionDaoImpl {
-
+public class NotificacionDao
+{
     private static SessionFactory sessionFactory = buildSessionFactory();
 
-    public List<Postulacion> list(){
-
+    public void save(Notificacion notificacion) {
         Session session = sessionFactory.openSession();
-        List<Postulacion> busquedaList = null;
         try {
             session.beginTransaction();
-            busquedaList = session.createCriteria(Postulacion.class).list();
+            session.save(notificacion);
             session.getTransaction().commit();
         }
 
@@ -30,7 +27,6 @@ public class PostulacionDaoImpl {
         finally {
             session.close();
         }
-        return busquedaList;
     }
 
     private static SessionFactory buildSessionFactory() {

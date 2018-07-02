@@ -12,10 +12,11 @@ public class Postulacion {
     @ManyToOne(cascade = CascadeType.ALL)
     private  Musico musico;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Instrumento instrumento;
 
-    public Postulacion() {
+    public Postulacion()
+    {
     }
 
     public Musico getMusico() {

@@ -104,7 +104,7 @@ public class MusicoDaoImpl implements MusicoDao {
     private static SessionFactory buildSessionFactory() {
         // Creating Configuration Instance & Passing Hibernate Configuration File
         Configuration configObj = new Configuration();
-        configObj.configure("hibernate.cfg.xml");
+        configObj.configure("hibernate.xml");
 
         // Since Hibernate Version 4.x, ServiceRegistry Is Being Used
         ServiceRegistry serviceRegistryObj = new StandardServiceRegistryBuilder().applySettings(configObj.getProperties()).build();

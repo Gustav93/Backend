@@ -3,7 +3,7 @@ package com.tp.backend.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "instrumentos")
+@Table(name = "instrumento")
 public class Instrumento
 {
     @Id
@@ -12,11 +12,15 @@ public class Instrumento
     @Column(name = "nombre")
     private String nombre;
 
-    @Column(name = "experienciaInstrumento")
-    private int experienciaInstrumento;
+//    @Column(name = "experienciaInstrumento")
+//    private int experienciaInstrumento;
 
-    @Column(name = "postulacion")
+//    @Column(name = "postulacion")
+    @OneToOne(mappedBy = "instrumento")
     private Postulacion postulacion;
+
+    @OneToOne(mappedBy = "instrumento")
+    private Busqueda busqueda;
 
     public Instrumento() {
     }
@@ -29,11 +33,27 @@ public class Instrumento
         this.nombre = nombre;
     }
 
-    public int getExperienciaInstrumento() {
-        return experienciaInstrumento;
+    public Postulacion getPostulacion() {
+        return postulacion;
     }
 
-    public void setExperienciaInstrumento(int experienciaInstrumento) {
-        this.experienciaInstrumento = experienciaInstrumento;
+    public void setPostulacion(Postulacion postulacion) {
+        this.postulacion = postulacion;
     }
+
+    public Busqueda getBusqueda() {
+        return busqueda;
+    }
+
+    public void setBusqueda(Busqueda busqueda) {
+        this.busqueda = busqueda;
+    }
+
+    //    public int getExperienciaInstrumento() {
+//        return experienciaInstrumento;
+//    }
+//
+//    public void setExperienciaInstrumento(int experienciaInstrumento) {
+//        this.experienciaInstrumento = experienciaInstrumento;
+//    }
 }

@@ -3,33 +3,31 @@ package com.tp.backend.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "busquedas")
+@Table(name = "busqueda")
 public class Busqueda {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "id")
-//    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-    @Column(name = "añosExperiencia")
+    @Column(name = "años_experiencia")
     private int añosExperiencia;
 
-    @Column(name = "instrumento")
+    @Column(name = "tiempo_maximo")
     private int tiempoMaximo;
 
-    @Column(name = "banda")
+    @ManyToOne(cascade = CascadeType.ALL)
     private Banda banda;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Instrumento instrumento;
 
     public Busqueda() {
     }
 
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public void setId(int id) {
-//        this.id = id;
-//    }
+    public int getId() {
+        return id;
+    }
 
     public int getAñosExperiencia() {
         return añosExperiencia;
@@ -53,5 +51,13 @@ public class Busqueda {
 
     public void setBanda(Banda banda) {
         this.banda = banda;
+    }
+
+    public Instrumento getInstrumento() {
+        return instrumento;
+    }
+
+    public void setInstrumento(Instrumento instrumento) {
+        this.instrumento = instrumento;
     }
 }

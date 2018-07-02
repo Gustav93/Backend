@@ -1,25 +1,21 @@
 package com.tp.backend.dao;
 
-import com.tp.backend.model.Postulacion;
+import com.tp.backend.model.Banda;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-import java.util.List;
-
-public class PostulacionDaoImpl {
+public class BandaDao {
 
     private static SessionFactory sessionFactory = buildSessionFactory();
 
-    public List<Postulacion> list(){
-
+    public void save(Banda banda) {
         Session session = sessionFactory.openSession();
-        List<Postulacion> busquedaList = null;
         try {
             session.beginTransaction();
-            busquedaList = session.createCriteria(Postulacion.class).list();
+            session.save(banda);
             session.getTransaction().commit();
         }
 
@@ -30,7 +26,26 @@ public class PostulacionDaoImpl {
         finally {
             session.close();
         }
-        return busquedaList;
+    }
+
+
+    public Banda getById(int id) {
+        Session session = sessionFactory.openSession();
+        Banda banda = null;
+        try {
+            session.beginTransaction();
+            banda = (Banda) session.get(Banda.class, id);
+            session.getTransaction().commit();
+        }
+
+        catch (Exception e){
+            e.printStackTrace();
+            session.getTransaction().rollback();
+        }
+        finally {
+            session.close();
+        }
+        return banda;
     }
 
     private static SessionFactory buildSessionFactory() {
@@ -45,4 +60,5 @@ public class PostulacionDaoImpl {
         sessionFactory = configObj.buildSessionFactory(serviceRegistryObj);
         return sessionFactory;
     }
+
 }
