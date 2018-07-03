@@ -14,25 +14,6 @@ public class BusquedaDaoImpl {
 
     private static SessionFactory sessionFactory = buildSessionFactory();
 
-    public Busqueda ById(int id) {
-        Session session = sessionFactory.openSession();
-        Busqueda busqueda = null;
-        try {
-            session.beginTransaction();
-            busqueda = (Busqueda) session.get(Busqueda.class, id);
-            session.getTransaction().commit();
-        }
-
-        catch (Exception e){
-            e.printStackTrace();
-            session.getTransaction().rollback();
-        }
-        finally {
-            session.close();
-        }
-        return busqueda;
-    }
-
     public List<Busqueda> list(){
 
         Session session = sessionFactory.openSession();
