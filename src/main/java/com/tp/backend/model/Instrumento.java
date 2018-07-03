@@ -12,10 +12,6 @@ public class Instrumento
     @Column(name = "nombre")
     private String nombre;
 
-//    @Column(name = "experienciaInstrumento")
-//    private int experienciaInstrumento;
-
-//    @Column(name = "postulacion")
     @OneToOne(mappedBy = "instrumento")
     private Postulacion postulacion;
 
@@ -49,11 +45,4 @@ public class Instrumento
         this.busqueda = busqueda;
     }
 
-    //    public int getExperienciaInstrumento() {
-//        return experienciaInstrumento;
-//    }
-//
-//    public void setExperienciaInstrumento(int experienciaInstrumento) {
-//        this.experienciaInstrumento = experienciaInstrumento;
-//    }
 }

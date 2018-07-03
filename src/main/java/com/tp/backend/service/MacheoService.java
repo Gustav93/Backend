@@ -1,34 +1,28 @@
 package com.tp.backend.service;
 
-import com.tp.backend.dao.BandaDao;
-import com.tp.backend.dao.MusicoDao;
-import com.tp.backend.dao.MusicoDaoImpl;
-import com.tp.backend.dao.NotificacionDao;
+import com.tp.backend.dao.*;
 import com.tp.backend.model.*;
-
-import javax.transaction.Transactional;
 import java.util.List;
 
 public class MacheoService {
 
-    private BusquedaServiceImpl busquedaService;
-    private PostulacionServiceImpl postulacionService;
+    private BusquedaDaoImpl busquedaDao;
+    private PostulacionDaoImpl postulacionDao;
     private BandaDao bandaDao;
     private MusicoDaoImpl musicoDao;
     private NotificacionDao notificacionDao;
 
     public MacheoService() {
-        busquedaService = new BusquedaServiceImpl();
-        postulacionService = new PostulacionServiceImpl();
+        busquedaDao = new BusquedaDaoImpl();
+        postulacionDao = new PostulacionDaoImpl();
         bandaDao = new BandaDao();
         musicoDao = new MusicoDaoImpl();
         notificacionDao = new NotificacionDao();
-        }
-
+    }
 
     public void machear() {
-        List<Busqueda> busquedas = busquedaService.listar();
-        List<Postulacion> postulaciones = postulacionService.listar();
+        List<Busqueda> busquedas = busquedaDao.list();
+        List<Postulacion> postulaciones = postulacionDao.list();
 
         for(Busqueda busqueda : busquedas)
         {

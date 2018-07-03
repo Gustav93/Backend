@@ -15,8 +15,7 @@ public class Postulacion {
     @OneToOne(cascade = CascadeType.ALL)
     private Instrumento instrumento;
 
-    public Postulacion()
-    {
+    public Postulacion() {
     }
 
     public Musico getMusico() {

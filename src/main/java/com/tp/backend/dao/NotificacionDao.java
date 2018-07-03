@@ -8,6 +8,8 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
+import java.util.List;
+
 public class NotificacionDao
 {
     private static SessionFactory sessionFactory = buildSessionFactory();
@@ -27,6 +29,26 @@ public class NotificacionDao
         finally {
             session.close();
         }
+    }
+
+    public List<Notificacion> list(){
+
+        Session session = sessionFactory.openSession();
+        List<Notificacion> notificacionList = null;
+        try {
+            session.beginTransaction();
+            notificacionList = session.createCriteria(Notificacion.class).list();
+            session.getTransaction().commit();
+        }
+
+        catch (Exception e){
+            e.printStackTrace();
+            session.getTransaction().rollback();
+        }
+        finally {
+            session.close();
+        }
+        return notificacionList;
     }
 
     private static SessionFactory buildSessionFactory() {
